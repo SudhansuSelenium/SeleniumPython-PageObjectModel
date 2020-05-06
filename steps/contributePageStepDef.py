@@ -12,7 +12,8 @@ def step_impl(context):
 
 @when("Contributor lands on Campaign Contribute page")
 def step_impl(context):
-    contributePage.verifyLabelsPresent()
     contributePage.verifyContributePageDisplayed()
+    contributePage.verifyLabelsPresent()
+
 
 

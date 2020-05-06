@@ -5,7 +5,7 @@ settings = None
 
 def load_setting():
     global settings
-    with open("C:\\Users\\sudha_000\\PycharmProjects\\testng\\resources\\settings.json", "r") as fp:
+    with open("D:\\PythonProjects\\SeleniumPython-PageObjectModel\\resources\\settings.json", "r") as fp:
 
         settings = json.load(fp)
 
