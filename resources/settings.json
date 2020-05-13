@@ -1,7 +1,11 @@
 {
   "url": "https://www.rahulshettyacademy.com/AutomationPractice/",
-  "browser": "chrome",
+  "browserName": "chrome",
   "noContributorUrl": "https://development-rco-scholastic.demandware.net/s/schl-egift/viewCampaign?campaignId=b52c3959-7306-48cd-8722-ae38279eda1f",
   "contributePg_Title": "CampaignAutoTest",
-  "tetsttt": "adsadasdas"
+  "contributePg_TeacherFirstName": "TeacherName1",
+  "contributePg_TeacherLastName": "TeacherName2",
+  "OS_Platform": "Windows 10",
+  "BrowserVersion": "74.0",
+  "BrowserName": "Firefox"
 }
