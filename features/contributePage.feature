@@ -18,7 +18,7 @@ Feature: eGift - Contribute Page
     And Contributor sees 'Contribute' button is displayed
     And Contributor sees 'Contribute' button is enabled
     And Contributor sees 0 of contributors contributed is displays
-
+@smoke
     Scenario: Verify contribute page when there is no contributor1
       Given Contributor clicks on the Campaign contribute link with no contributor
       When Contributor lands on Campaign Contribute page
