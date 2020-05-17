@@ -1,10 +1,11 @@
 {
   "url": "https://www.rahulshettyacademy.com/AutomationPractice/",
   "browserName": "chrome",
-  "noContributorUrl": "https://development-rco-scholastic.demandware.net/s/schl-egift/viewCampaign?campaignId=b52c3959-7306-48cd-8722-ae38279eda1f",
+  "noContributorUrl": "https://development-rco-scholastic.demandware.net/s/schl-egift/viewCampaign?campaignId=230a89bf-1bdb-4f5c-bf0a-5925e5900b6f",
   "contributePg_Title": "CampaignAutoTest",
   "contributePg_TeacherFirstName": "TeacherName1",
   "contributePg_TeacherLastName": "TeacherName2",
-  "tags": "@smoke"
+  "tags": "@smoke",
+  "noContributorListMessage" : "You don\u2019t have any contributors yet."
 
 }

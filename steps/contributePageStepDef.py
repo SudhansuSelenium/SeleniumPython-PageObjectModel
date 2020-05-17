@@ -45,8 +45,28 @@ def step_impl(context):
 
 @step("Contributor sees 0 of contributors contributed is displays")
 def step_impl(context):
-    contributePage.verifyTeacherLastNameDisplayed1()
+    contributePage.verify0ContributorDisplayed()
 
-@step("Contributor sees 0 of contributors contributed is displayed")
+@step("Contributor sees total amount of contributions contributed is displayed")
 def step_impl(context):
-    contributePage.verifyTeacherLastNameDisplayed2()
+    contributePage.verifyContributedAmount()
+
+
+@step("Contributor sees goal amount is displays")
+def step_impl(context):
+    contributePage.verifyGoalAmtInContributePgDisplayed()
+
+
+
+@step("Contributor sees campaign End date displays")
+def step_impl(context):
+    contributePage.verifyEndDateInContributePgDisplayed()
+
+
+@step("Contributor sees 'Confirm Payment' button is displayed")
+def step_impl(context):
+    contributePage.verifyConfirmPaymentInContributePgDisplayed()
+
+@step("Contributors List section does not display")
+def step_impl(context):
+    contributePage.verifyNoContributorsListMsg()
