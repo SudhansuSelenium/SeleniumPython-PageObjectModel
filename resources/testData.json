@@ -5,7 +5,6 @@
   "contributePg_Title": "CampaignAutoTest",
   "contributePg_TeacherFirstName": "TeacherName1",
   "contributePg_TeacherLastName": "TeacherName2",
-  "OS_Platform": "Windows 10",
-  "BrowserVersion": "74.0",
-  "BrowserName": "Firefox"
+  "tags": "[]"
+
 }

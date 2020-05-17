@@ -1,42 +1,46 @@
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
-from resources.config import settings
+from resources.config import desired_capabilities
 
-class baseClass:
-    instance = None
+
+class testBaseClass:
 
     @staticmethod
-    def openPage(context):
+    def openPage():
         global driver
         global capabilities
-        if settings['BrowserName'] == "Firefox":
-            capabilities = DesiredCapabilities.FIREFOX
-            capabilities['platform'] = settings['OS_Platform']
-            capabilities['version'] = settings['BrowserVersion']
-            capabilities['browserName']=settings['BrowserName']
-            context.driver = webdriver.Remote(
-                command_executor="https://sudhansusekhar2005:IlG2J1JGI8iCLgEriOA6ZDgnOJov7rHC47qeu5GGwpDTLd3eqG@hub.lambdatest.com/wd/hub",
-                desired_capabilities=capabilities)
-        context.driver.maximize_window()
-        driver = context.driver
+        if desired_capabilities['remoteDriver'] == "True":
+            if desired_capabilities['BrowserName'] == "Firefox":
+                capabilities = DesiredCapabilities.FIREFOX
+            elif desired_capabilities['BrowserName'] == "Chrome":
+                capabilities = DesiredCapabilities.CHROME
+            elif desired_capabilities['BrowserName'] == "IE":
+                capabilities = DesiredCapabilities.INTERNETEXPLORER
+            elif desired_capabilities['Edge'] == "Edge":
+                capabilities = DesiredCapabilities.EDGE
+            elif desired_capabilities['Safari'] == "Safari":
+                 capabilities = DesiredCapabilities.SAFARI
+            capabilities['platform'] = desired_capabilities['OS_Platform']
+            capabilities['version'] = desired_capabilities['BrowserVersion']
+            capabilities['browserName'] = desired_capabilities['BrowserName']
+            #capabilities['name'] = scenario.name
+            capabilities['build'] = "eGift Testing Python"
+            driver = webdriver.Remote(
+                command_executor=desired_capabilities["lambdaTest"],desired_capabilities=capabilities)
+        else:
+            driver = webdriver.Chrome(executable_path="D:\\PythonProjects\\chromedriver_win32\\chromedriver.exe")
+        driver.maximize_window()
 
     @staticmethod
     def getDriver():
         return driver
 
-    def get_deleteCookies(context):
-        driver.delete_cookie()
-
-    @classmethod
-    def get_instance(cls):
-        if cls.instance is None:
-            cls.instance = baseClass()
-        return cls.instance
+    @staticmethod
+    def deleteCookies():
+        driver.delete_all_cookies()
 
     @staticmethod
-    def closePage(context):
-        context.driver.quit()
-        print "Quit Driver"
+    def closePage():
+        driver.quit()
 
-
-testBase = baseClass.get_instance()
+testBase = testBaseClass()
