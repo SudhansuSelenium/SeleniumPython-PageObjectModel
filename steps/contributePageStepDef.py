@@ -46,3 +46,7 @@ def step_impl(context):
 @step("Contributor sees 0 of contributors contributed is displays")
 def step_impl(context):
     contributePage.verifyTeacherLastNameDisplayed1()
+
+@step("Contributor sees 0 of contributors contributed is displayed")
+def step_impl(context):
+    contributePage.verifyTeacherLastNameDisplayed2()

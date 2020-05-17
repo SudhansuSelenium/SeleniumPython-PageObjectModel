@@ -5,6 +5,6 @@
   "contributePg_Title": "CampaignAutoTest",
   "contributePg_TeacherFirstName": "TeacherName1",
   "contributePg_TeacherLastName": "TeacherName2",
-  "tags": "[]"
+  "tags": "@smoke"
 
 }
