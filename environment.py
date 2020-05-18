@@ -33,7 +33,7 @@ def after_scenario(context, scenario):
                 getProperty['tags'].replace("@", "") in scenarioTagList) == True:
             print(scenario.status)
             if scenario.status == 'failed':
-                allure.attach(context.driver.get_screenshot_as_png(),
+                allure.attachment_type(context.driver.get_screenshot_as_png(),
                               name='screenshot',
                               attachment_type=AttachmentType.PNG)
                 print("Scenario :", scenario.name, " failed")
