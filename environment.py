@@ -1,5 +1,6 @@
 from resources.config import getProperty
 from utilities.baseClass import testBaseClass
+import allure
 
 def before_feature(context, feature):
     global featureTagValue
@@ -31,7 +32,9 @@ def after_scenario(context, scenario):
                 getProperty['tags'].replace("@", "") in scenarioTagList) == True:
             print(scenario.status)
             if scenario.status == 'failed':
-                context.driver.save_screenshot("E:\\screenshot\\failed.png")
+                allure.attach(context.driver.get_screenshot_as_png(),
+                              name='screenshot',
+                              attachment_type=allure.attachment_type.PNG)
                 print("Scenario :", scenario.name, " failed")
             else:
                 testBaseClass.closePage()
