@@ -1,6 +1,7 @@
 from resources.config import getProperty
 from utilities.baseClass import testBaseClass
 import allure
+from allure_commons.types import AttachmentType
 
 def before_feature(context, feature):
     global featureTagValue
@@ -34,7 +35,7 @@ def after_scenario(context, scenario):
             if scenario.status == 'failed':
                 allure.attach(context.driver.get_screenshot_as_png(),
                               name='screenshot',
-                              attachment_type=allure.attachment_type.PNG)
+                              attachment_type=AttachmentType.PNG)
                 print("Scenario :", scenario.name, " failed")
             else:
                 testBaseClass.closePage()
