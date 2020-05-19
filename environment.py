@@ -9,7 +9,7 @@ def before_feature(context, feature):
     global featureTagValue
     for featureTagValue in feature.tags:
         pass
-    print("Feature tag :", featureTagValue)
+    print("Feature :", featureTagValue)
 
 
 def before_scenario(context, scenario):
@@ -38,4 +38,4 @@ def after_scenario(context, scenario):
                 testBaseClass.getDriver().execute_script("lambda-status=failed")
         else:
             testBaseClass.getDriver().execute_script("lambda-status=passed")
-    testBaseClass.getDriver().quit()
+        testBaseClass.getDriver().quit()

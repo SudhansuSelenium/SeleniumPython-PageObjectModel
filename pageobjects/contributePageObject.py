@@ -1,4 +1,6 @@
 import time
+import unittest
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ExpectedConditions
@@ -19,7 +21,7 @@ contributePg_ConfirmPaymentBtn = "//button[@type='submit'][contains(.,'confirm p
 contributePg_NoContributeMsg = "//p[contains(.,'You don’t have any contributors yet.')]"
 
 
-class contributePageObject(testBaseClass):
+class contributePageObject(testBaseClass, unittest.TestCase):
 
     @staticmethod
     def launchCampaign(context, contributePageUrl):
@@ -66,26 +68,26 @@ class contributePageObject(testBaseClass):
         assert testBaseClass.getDriver().find_element_by_xpath(contributePg_btn).is_displayed()
         assert testBaseClass.getDriver().find_element_by_xpath(contributePg_btn).is_enabled()
 
-    @staticmethod
-    def verifyEndDateLabelDisplayed():
-        assert testBaseClass.getDriver().find_element_by_xpath(contributePg_EndDateLabel).is_displayed()
 
-    @staticmethod
-    def verifyTeacherFirstLastNameDisplayed():
+    def verifyEndDateLabelDisplayed(self):
+        self.assertTrue(testBaseClass.getDriver().find_element_by_xpath(contributePg_EndDateLabel).is_displayed())
+
+
+    def verifyTeacherFirstLastNameDisplayed(self):
         teacherFN = teacherFirstLastName.split()
-        assert teacherFN[1] == getProperty['contributePg_TeacherFirstName']
+        self.assertEqual(teacherFN[1],getProperty['contributePg_TeacherFirstName'])
 
-    @staticmethod
-    def verifyTeacherLastNameDisplayed():
+
+    def verifyTeacherLastNameDisplayed(self):
         teacherLN = teacherFirstLastName.split()
-        assert teacherLN[2] == getProperty['contributePg_TeacherLastName']
+        self.assertEqual(teacherLN[2],getProperty['contributePg_TeacherLastName'])
 
     # EOS - Scenario: verify labels in contribute page
     ### Scenario: Verify contribute page when there is no contributor
-    @staticmethod
-    def verify0ContributorDisplayed():
+
+    def verify0ContributorDisplayed(self):
         if totalContributor[0] == 0:
-            assert totalContributor[1] == 'contributors'
+            self.assertEqual(totalContributor[1], 'contributors')
 
     @staticmethod
     def verifyContributedAmount():
