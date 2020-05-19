@@ -31,10 +31,5 @@ def after_scenario(context, scenario):
         if (featureTagValue == getProperty['tags'].replace("@", "")) == True or (
                 getProperty['tags'].replace("@", "") in scenarioTagList) == True:
             print(scenario.status)
-            if scenario.status == 'failed':
-                allure.attachment_type(testBaseClass.getDriver().get_screenshot_as_png(),
-                              name='screenshot',
-                              attachment_type=AttachmentType.PNG)
-                print("Scenario :", scenario.name, " failed")
         testBaseClass.closePage()
 
