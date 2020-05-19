@@ -1,4 +1,3 @@
-print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%000000000000000000000000")
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
 from resources.config import desired_capabilities
