@@ -1,3 +1,5 @@
+from behave_webdriver import driver
+
 from resources.config import getProperty
 from utilities.baseClass import testBaseClass
 import allure
@@ -33,7 +35,8 @@ def after_scenario(context, scenario):
                 getProperty['tags'].replace("@", "") in scenarioTagList) == True:
             print(scenario.status)
             if scenario.status == 'failed':
-                print("FAILLLLLLLLLLLLLLLLLLLLLLLed")
+                with allure.step('open ya.ru and take screenshot'):
+                    allure.attach('screenshot', driver.get_screenshot_as_png(), type=AttachmentType.PNG)
                 print("Scenario :", scenario.name, " failed")
             else:
                 testBaseClass.closePage()
