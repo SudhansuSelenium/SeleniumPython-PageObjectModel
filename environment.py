@@ -28,7 +28,6 @@ def before_scenario(context, scenario):
             scenario.skip()
 
 def after_scenario(context, scenario):
-    try:
         if (featureTagValue == getProperty['tags'].replace("@", "")) == True or (
                 getProperty['tags'].replace("@", "") in scenarioTagList) == True:
             print(scenario.status)
@@ -39,5 +38,5 @@ def after_scenario(context, scenario):
                 print("Scenario :", scenario.name, " failed")
             else:
                 testBaseClass.closePage()
-    except(RuntimeError, TypeError, NameError):
-        pass
+        else:
+            testBaseClass.closePage()
