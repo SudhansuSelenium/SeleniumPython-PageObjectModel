@@ -36,7 +36,5 @@ def after_scenario(context, scenario):
                               name='screenshot',
                               attachment_type=AttachmentType.PNG)
                 print("Scenario :", scenario.name, " failed")
-            else:
-                testBaseClass.closePage()
-        else:
-            testBaseClass.closePage()
+    testBaseClass.closePage()
+
