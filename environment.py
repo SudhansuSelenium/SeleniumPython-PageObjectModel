@@ -36,7 +36,7 @@ def after_scenario(context, scenario):
             print(scenario.status)
             if scenario.status == 'failed':
                 with allure.step('open ya.ru and take screenshot'):
-                    allure.attach('screenshot', driver.get_screenshot_as_png(), type=AttachmentType.PNG)
+                    allure.attach('screenshot', testBaseClass.getDriver().get_screenshot_as_png(), type=AttachmentType.PNG)
                 print("Scenario :", scenario.name, " failed")
             else:
                 testBaseClass.closePage()
