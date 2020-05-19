@@ -3,7 +3,7 @@
   "browserName": "chrome",
   "noContributorUrl": "https://development-rco-scholastic.demandware.net/s/schl-egift/viewCampaign?campaignId=230a89bf-1bdb-4f5c-bf0a-5925e5900b6f",
   "contributePg_Title": "CampaignAutoTest",
-  "contributePg_TeacherFirstName": "TeacherName1",
+  "contributePg_TeacherFirstName": "TeacherName11",
   "contributePg_TeacherLastName": "TeacherName2",
   "tags": "@smoke",
   "noContributorListMessage" : "You don\u2019t have any contributors yet."
