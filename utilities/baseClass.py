@@ -6,7 +6,7 @@ from resources.config import desired_capabilities
 class testBaseClass:
 
     @staticmethod
-    def openPage():
+    def openPage(scenario):
         global driver
         global capabilities
         if desired_capabilities['remoteDriver'] == "True":
@@ -23,7 +23,7 @@ class testBaseClass:
             capabilities['platform'] = desired_capabilities['OS_Platform']
             capabilities['version'] = desired_capabilities['BrowserVersion']
             capabilities['browserName'] = desired_capabilities['BrowserName']
-            #capabilities['name'] = scenario.name
+            capabilities['name'] = scenario.name
             capabilities['build'] = "eGift Testing Python"
             driver = webdriver.Remote(
                 command_executor=desired_capabilities["lambdaTest"],desired_capabilities=capabilities)

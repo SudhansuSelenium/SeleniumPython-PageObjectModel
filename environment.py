@@ -16,7 +16,7 @@ def before_scenario(context, scenario):
     ############## scenario run with Feature tag ###################
     if (featureTagValue == getProperty['tags'].replace("@", "")) == True:
         print(scenario)
-        testBaseClass.openPage()
+        testBaseClass.openPage(scenario)
     ############## scenario run with Scenario tag ###################
     if (featureTagValue != getProperty['tags'].replace("@", "")) == True:
         global scenarioTagList
@@ -25,7 +25,7 @@ def before_scenario(context, scenario):
             scenarioTagList.append(scenarioTag)
         if (getProperty['tags'].replace("@", "") in scenarioTagList) == True:
             print(scenario)
-            testBaseClass.openPage()
+            testBaseClass.openPage(scenario)
         else:
             scenario.skip()
 
@@ -38,9 +38,7 @@ def after_scenario(context, scenario):
                 with allure.step('open ya.ru and take screenshot'):
                     allure.attach('screenshot', testBaseClass.getDriver().get_screenshot_as_png(), type=AttachmentType.PNG)
                 print("Scenario :", scenario.name, " failed")
-                if(scenario.status == 'failed'):
-                    testBaseClass.getDriver().quit()
-            else:
-                testBaseClass.closePage()
+                testBaseClass.getDriver().quit()
+        testBaseClass.getDriver().quit()
     except(RuntimeError, TypeError, NameError):
         pass
