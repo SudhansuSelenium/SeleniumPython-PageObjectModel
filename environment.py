@@ -30,15 +30,12 @@ def before_scenario(context, scenario):
             scenario.skip()
 
 def after_scenario(context, scenario):
-    try:
-        if (featureTagValue == getProperty['tags'].replace("@", "")) == True or (
-                getProperty['tags'].replace("@", "") in scenarioTagList) == True:
-            print(scenario.status)
-            if scenario.status == 'failed':
-                with allure.step('open ya.ru and take screenshot'):
-                    allure.attach('screenshot', testBaseClass.getDriver().get_screenshot_as_png(), type=AttachmentType.PNG)
+    if (featureTagValue == getProperty['tags'].replace("@", "")) == True or (
+        getProperty['tags'].replace("@", "") in scenarioTagList) == True:
+        print(scenario.status)
+        if scenario.status == 'failed':
                 print("Scenario :", scenario.name, " failed")
-                testBaseClass.getDriver().quit()
-        testBaseClass.getDriver().quit()
-    except(RuntimeError, TypeError, NameError):
-        pass
+                testBaseClass.getDriver().execute_script("lambda-status=failed")
+        else:
+            testBaseClass.getDriver().execute_script("lambda-status=passed")
+    testBaseClass.getDriver().quit()
